@@ -43,18 +43,18 @@ Implement a playbook that will automate the installation of an instance of Wildf
 
 * Download Wildlfy's zipfile from the project website
 * Prepare system to run Widlfy which includes:
-** create required directory structure
-** create group and user for 'widlfy'
-** create a symlink bewteen the init script provided with Wildfly and the /etc/init.d directory.
+    * create required directory structure
+    * create group and user for 'widlfy'
+    * create a symlink bewteen the init script provided with Wildfly and the /etc/init.d directory.
 * Ensure Wildfly service is running as a service
 
 Lab 2 - Introducing JCliff (20')
 ===
 
 We will start this lab by a short presentation of JCliff and its integration within Ansible, then you'll have to implement the following requirements:
-** Tweak memory setting and JAVA_OPTS (reduce memory usage by a factor 2)
-** Create admin user for the Console
-** Add properties to the Widlfy Configuration (using JCliff)
+* Tweak memory setting and JAVA_OPTS (reduce memory usage by a factor 2)
+* Create admin user for the Console
+* Add properties to the Widlfy Configuration (using JCliff)
 
 Lab 3 - Using Ansible to deploy a JDBC driver(15')
 ===
