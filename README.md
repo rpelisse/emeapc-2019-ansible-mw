@@ -8,13 +8,18 @@ Requirement: This lab assume that attendees are familliar with JBoss EAP, especi
 Connecting to the system
 ===
 
-Use the browser on your sytem to allocate one instance of this lab for you. Once this is done, you'll get a DNS hostname (or an IP) to get to the remote system provided for you. Simply use the SSH command to connect to the system with the user 'root':
+Go request your lab environnment on [GUID Grabber](https://www.opentlc.com/gg/gg.cgi?profile=generic_pc)
+Lab Activation key: ansible-middleware
 
-``` $ ssh root@<DNS-name>```
-
-The password is: re3dh4t1!
+Use the browser on your sytem to allocate one instance of this lab for you. Once this is done, you'll get a DNS hostname (or an IP) to get to the remote system provided for you.
 
 If you are not familliar with SSH, please let me (the instructor) know!
+
+How to edit file?
+===
+
+You'll be connecting to the lab system using a SSH connection so to edit the files you have to create and/or modify for the lab you need to use a text editor such as 'vi', 'emacs' or 'pico'. If you are unfamilliar with those text editor, simply use 'pico'. All three have been made available on the system. Feel free to install an other text editor on the system if you prefer - just don't break the system ;)
+
 
 Lab 0 - Setting up Your Environment (15')
 ====
@@ -53,7 +58,6 @@ Lab 3 - Using Ansible to deploy a JDBC driver(15')
 ===
 
 Enhance your playbook to automate the following actions:
-
 * Download the latest jdbc driver for Postgresql
 * Create the required directory structure to deploy a module
 * Deploy the required artefacts to deploy a new JDBC driver (for Postgresql) inside Wildfly
@@ -62,7 +66,9 @@ Enhance your playbook to automate the following actions:
 Lab 4 - Deploy application with JCliff (15')
 ===
 
-* Checkout and build a simple webapp, use JCliff to deploy the webapp
+Add the deployment of a WebApp in your playbook, by automating the following actions:
+* Download the [simple-webapp.war](people.redhat.com/~rpelisse/jcliff.yum/)
+* Use JCliff to deploy the WebApp
 
 Lab 5 - Write a JCliff custom rule (30')
 ===
