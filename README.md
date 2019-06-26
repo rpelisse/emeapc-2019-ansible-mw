@@ -37,11 +37,30 @@ This part of the lab will cover the basics of Ansible. You will learn its syntax
 Lab 1 - Basic install of Wildlfy using Ansible (25')
 ===
 
-If you are not familiar with Ansible, please start with reading [Your first playbook](https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#create-and-run-your-first-network-ansible-playbook) and let the instructor know, he will guide you through basics of Ansible. If you are very familiar with Ansible and the exercice below does not provide any challenges to you, go to the next lab.
+If you are not familiar with Ansible, we are going to start with simple tutorial. If you are already fluent with Ansible and that the exercice below does not provide any challenges to you, go to the next lab.
 
-Implement a playbook that will automate the installation of an instance of Wildfly (the upstream version of JBoss EAP). The playbook should implement the following requirements:
+We will implement together a playbook that will automate the installation of an instance of Wildfly (the upstream version of JBoss EAP).
 
+* Ansible helloworld, copy the content below into a file called playbook.yml:
+```
+---
+- name: Network Getting Started First Playbook
+  gather_facts: false
+  hosts: localhost
+  tasks:
+
+    - name: Hello Ansible
+      debug:
+        msg: "Hello!"
+```
+* Execute it using the ansible-playbook command:
+```
+# ansible-playbook playbook.yml
+```
+* Warning: As Ansible uses YAML as a format, respecting the Yaml constraint is important! Be careful of your identation!
 * Download Wildlfy's zipfile from the project website
+    * Hint: look at the Ansible module called [unarchive](https://docs.ansible.com/ansible/latest/modules/unarchive_module.html)
+	* Advanced Question: Makes this idempotent
 * Prepare system to run Widlfy which includes:
     * create required directory structure
     * create group and user for 'widlfy'
