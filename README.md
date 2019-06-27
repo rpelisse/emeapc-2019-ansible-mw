@@ -71,9 +71,40 @@ Lab 2 - Introducing JCliff (20')
 ===
 
 We will start this lab by a short presentation of JCliff and its integration within Ansible, then you'll have to implement the following requirements:
+
 * Tweak memory setting and JAVA_OPTS (reduce memory usage by a factor 2)
 * Create admin user for the Console
-* Add properties to the Widlfy Configuration (using JCliff)
+* Install jcliff:
+    * Add a yum repo:
+```
+$ cat /etc/yum.repos.d/jcliff.repo
+[jcliff]
+baseurl = http://people.redhat.com/~rpelisse/jcliff.yum/
+gpgcheck = 0
+name = JCliff repository
+```
+    * Install the tool
+```
+# yum install jcliff
+```
+* Install jcliff role for Ansible using Ansible Galaxy
+```
+$ ansible-galaxy install redhat-cop.jcliff
+- downloading role 'jcliff', owned by redhat-cop
+- downloading role from https://github.com/redhat-cop/automate-jcliff/archive/master.tar.gz
+- extracting redhat-cop.jcliff to /home/rpelisse/.ansible/roles/redhat-cop.jcliff
+- redhat-cop.jcliff (master) was installed successfully
+```
+* Add properties to the Widlfy Configuration (using JCliff) (myPropery/myValue)
+    * Hint: Looks at the example provided on [automate-jcliff](https://github.com/rpelisse/automate-jcliff/blob/master/tune-wildfly-with-jcliff.yml#L30)
+* Use the jboss-cli to check that properties has been created:
+```
+/opt/wildfly/wildfly-16.0.0.Final/bin/jboss-cli.sh  --connect --command='/system-property=myProperty:read-resource'
+{
+    "outcome" => "success",
+    "result" => {"value" => "myValue"}
+}
+```
 
 Lab 3 - Using Ansible to deploy a JDBC driver(15')
 ===
